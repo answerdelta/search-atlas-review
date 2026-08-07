@@ -1,4 +1,4 @@
-# Search Atlas Review (2026) — What OTTO SEO Actually Ships to the Crawler
+# Search Atlas Review 2026 — What OTTO SEO Actually Ships to the Crawler
 
 An open, reproducible review of [Search Atlas](https://searchatlas.com/): a script that tests
 the platform's central claim on **your own site**, plus a sourced dataset of its pricing,
