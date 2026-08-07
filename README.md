@@ -1,6 +1,6 @@
 # Search Atlas Review 2026 — What OTTO SEO Actually Ships to the Crawler
 
-An open, reproducible review of [Search Atlas](https://searchatlas.com/): a script that tests
+An open, reproducible review of [Search Atlas](https://ofm-tools.com/git/searchatlas): a script that tests
 the platform's central claim on **your own site**, plus a sourced dataset of its pricing,
 modules and documented limitations. Every figure carries a source URL and the date it was
 checked. Snapshot: **2026-08-07**.
@@ -129,8 +129,9 @@ The script was run against a live site and against a controlled page that inject
 description, canonical, schema and H1 in JavaScript, to confirm the diff catches each element
 class.
 
-Search Atlas also publishes [MCP servers](https://github.com/search-atlas-group) if you would
-rather drive the platform from an agent than from the dashboard.
+Search Atlas also publishes MCP servers — `github.com/search-atlas-group` — if you would rather
+drive the platform from an agent than from the dashboard. [Trial access is here](https://ofm-tools.com/git/searchatlas)
+if you want to point one at your own account.
 
 ## Contributing
 
