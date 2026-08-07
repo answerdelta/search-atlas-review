@@ -1,0 +1,170 @@
+{
+  "$comment": "Every entry carries a source URL and the date it was checked. Nothing here is inferred. Where two sources disagree, both are recorded. PRs that update a figure must update `checked` and `source` together.",
+  "vendor": "Search Atlas",
+  "vendor_site": "https://searchatlas.com/",
+  "vendor_github_org": "https://github.com/search-atlas-group",
+  "snapshot_date": "2026-08-07",
+  "schema_version": 1,
+
+  "pricing": {
+    "currency": "USD",
+    "billing": "per month",
+    "source": "https://searchatlas.com/pricing/",
+    "checked": "2026-08-07",
+    "free_trial_days": 7,
+    "tiers": [
+      {
+        "name": "Starter",
+        "price": 99,
+        "positioning": "solo marketers, freelancers, 1-person teams",
+        "confirmed_on_vendor_page": true
+      },
+      {
+        "name": "Growth",
+        "price": 199,
+        "list_price": 249,
+        "note": "listed at 20% off list price at time of check; marked 'most popular'",
+        "positioning": "scaling agencies and mid-sized businesses",
+        "confirmed_on_vendor_page": true
+      },
+      {
+        "name": "Pro",
+        "price": 399,
+        "positioning": "high-volume agencies and advanced SEO teams; white-label dashboard",
+        "confirmed_on_vendor_page": true
+      },
+      {
+        "name": "Agency",
+        "price": 999,
+        "positioning": "reported by a third-party reviewer, NOT visible on the public pricing page at time of check",
+        "confirmed_on_vendor_page": false,
+        "source": "https://behindrankings.com/search-atlas-review/",
+        "checked": "2026-08-07"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "positioning": "custom quote, personalised onboarding, dedicated support",
+        "confirmed_on_vendor_page": true
+      }
+    ],
+    "otto_seo_addon": {
+      "model": "per site, volume-tiered",
+      "price_high": 99,
+      "price_low": 49,
+      "note": "per-site price decreases as sites are added; Enterprise is custom",
+      "confirmed_on_vendor_page": true
+    }
+  },
+
+  "modules": {
+    "source": "https://searchatlas.com/",
+    "checked": "2026-08-07",
+    "note": "Names as marketed by the vendor. Presence in this list is not an endorsement of depth — see `findings`.",
+    "automation": ["OTTO SEO", "Atlas Agent", "Coworker", "GBP Galactic", "Smart Ads", "Meta Ad Studio"],
+    "content": ["Content Genius V3", "Website Studio", "Topical Maps", "SCHOLAR"],
+    "technical": ["Site Explorer", "Site Auditor", "On Page Audit", "Indexer"],
+    "authority": ["Link Building Software", "Backlink Analyzer", "QUEST", "Press Release Software"],
+    "local": ["Local SEO", "Local Citations"],
+    "ai_search": ["LLM Visibility"],
+    "agency": ["Report Builder", "Portfolio Summary", "White Label"]
+  },
+
+  "findings": [
+    {
+      "id": "otto-client-side-injection",
+      "claim": "OTTO SEO applies its on-page changes client-side, via a JavaScript snippet, rather than at CMS level.",
+      "why_it_matters": "Google renders JavaScript, so rendered-only changes can still be picked up on the render pass. Most LLM crawlers (GPTBot, ClaudeBot, PerplexityBot, CCBot) do not execute JavaScript, so rendered-only changes are invisible to them.",
+      "status": "reported by third-party reviewers; verifiable per-site with otto_visibility_check.py in this repo",
+      "source": "https://behindrankings.com/search-atlas-review/",
+      "checked": "2026-08-07",
+      "verify": "python otto_visibility_check.py <your-url> --rendered"
+    },
+    {
+      "id": "traffic-estimate-inflation",
+      "claim": "Organic traffic estimate diverged sharply from Google Search Console on the reviewer's own site: 15,500 estimated vs 1,650 actual (~9x).",
+      "why_it_matters": "Single-site anecdote, not a benchmark. Treat any third-party traffic estimator as directional; reconcile against GSC before reporting to a client.",
+      "status": "single documented case, n=1, not independently reproduced",
+      "source": "https://behindrankings.com/search-atlas-review/",
+      "checked": "2026-08-07"
+    },
+    {
+      "id": "report-load-latency",
+      "claim": "Report loading times of 2-5 minutes and occasional platform crashes.",
+      "status": "reported by third-party reviewer",
+      "source": "https://behindrankings.com/search-atlas-review/",
+      "checked": "2026-08-07"
+    },
+    {
+      "id": "llm-visibility-domain-cap",
+      "claim": "LLM visibility tracking limited to two domains.",
+      "status": "reported by third-party reviewer; plan-dependent, confirm against your own tier",
+      "source": "https://behindrankings.com/search-atlas-review/",
+      "checked": "2026-08-07"
+    },
+    {
+      "id": "landing-page-credits",
+      "claim": "40 landing page credits per month on the Growth plan.",
+      "status": "reported by third-party reviewer",
+      "source": "https://behindrankings.com/search-atlas-review/",
+      "checked": "2026-08-07"
+    },
+    {
+      "id": "backlink-index-depth",
+      "claim": "Not the deepest backlink index; less historical depth than Ahrefs. Cannot replace a specialist tool for backlink forensics.",
+      "status": "reviewer judgement, not a measured index-size comparison",
+      "source": "https://diyai.io/ai-tools/seo/reviews/search-atlas-review/",
+      "checked": "2026-08-07"
+    },
+    {
+      "id": "automation-governance",
+      "claim": "Automated deployment of on-page changes needs human review before it touches important pages.",
+      "status": "reviewer judgement, echoed across multiple reviews",
+      "source": "https://diyai.io/ai-tools/seo/reviews/search-atlas-review/",
+      "checked": "2026-08-07"
+    },
+    {
+      "id": "official-mcp-servers",
+      "claim": "The vendor publishes MCP servers on GitHub, so the platform can be driven from an AI agent rather than the dashboard.",
+      "status": "verifiable — public repositories",
+      "source": "https://github.com/search-atlas-group",
+      "checked": "2026-08-07"
+    }
+  ],
+
+  "third_party_scores": [
+    {
+      "source": "https://diyai.io/ai-tools/seo/reviews/search-atlas-review/",
+      "checked": "2026-08-07",
+      "overall": "8.7/10 (also expressed as 4.4/5)",
+      "components": {
+        "keyword_intelligence": "8.9/10",
+        "content_optimization": "8.9/10",
+        "roi_value": "9.0/10",
+        "integration_ease": "8.3/10"
+      },
+      "caveat": "Vendor-review sites frequently monetise via affiliate links. Scores are recorded here as reported, not endorsed."
+    },
+    {
+      "source": "https://searchatlas.com/",
+      "checked": "2026-08-07",
+      "overall": null,
+      "caveat": "Vendor homepage displays G2 (3,200+ reviews), Capterra, Gartner and Global Search Awards badges without a numeric rating on the page itself. Recorded as a vendor claim, unverified here."
+    }
+  ],
+
+  "alternatives_named_by_reviewers": [
+    {"name": "Ahrefs", "cited_for": "backlink index depth and historical data", "entry_price_usd_month": 29, "backlink_research_tier_usd_month": 129, "pricing_source": "https://ahrefs.com/pricing", "pricing_checked": "2026-08-07", "sources": ["https://diyai.io/ai-tools/seo/reviews/search-atlas-review/", "https://behindrankings.com/search-atlas-review/"]},
+    {"name": "Semrush", "cited_for": "broad market intelligence and PPC data", "sources": ["https://diyai.io/ai-tools/seo/reviews/search-atlas-review/", "https://behindrankings.com/search-atlas-review/"]},
+    {"name": "Surfer SEO", "cited_for": "page-level content scoring", "sources": ["https://diyai.io/ai-tools/seo/reviews/search-atlas-review/"]},
+    {"name": "SE Ranking", "cited_for": "lower-cost agency rank tracking", "sources": ["https://behindrankings.com/search-atlas-review/"]},
+    {"name": "Google Search Console", "cited_for": "free, first-party, and the reference any estimator should be reconciled against", "sources": []}
+  ],
+
+  "known_unknowns": [
+    "No independent, multi-site benchmark of Search Atlas traffic estimates against GSC exists publicly. The 9x figure is n=1.",
+    "No public measurement of how much of OTTO's output Google actually indexes after the render pass, versus how much is dropped.",
+    "No published index-size comparison between Search Atlas's backlink index and Ahrefs/Semrush.",
+    "G2/Capterra aggregate scores are not recorded here because the numeric value was not readable on a public page at check time."
+  ]
+}
